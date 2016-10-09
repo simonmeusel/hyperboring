@@ -10,7 +10,7 @@ const PARTICLE_GRAVITY = 0.075;
 const PARTICLE_ALPHA_FADEOUT = 0.96;
 const PARTICLE_VELOCITY_RANGE = {
   x: [-1, 1],
-  y: [-3.5, -1.5]
+  y: [-10.5, -1.5]
 };
 
 exports.middleware = (store) => (next) => (action) => {
@@ -117,8 +117,12 @@ exports.decorateTerm = (Term, { React, notify }) => {
     }
 
     _spawnParticles (x, y) {
+	 if (!this.props.wowMode) return;
+      // return if wow mode is not on
+      // so there wont be any particles witout wow mode
+      if (!this.props.wowMode) return;
       // const { colors } = this.props;
-      const colors = this.props.wowMode 
+      const colors = this.props.wowMode
         ? values(this.props.colors).map(toHex)
         : [toHex(this.props.cursorColor)];
       const numParticles = PARTICLE_NUM_RANGE();
