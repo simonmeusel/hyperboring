@@ -3,7 +3,8 @@
   "version": "0.2.2",
   "keywords": [
     "hyper",
-    "hyper.app"
+    "hyper.app",
+    "hyper-plugin"
   ],
   "description": "Extension for wow mode in Hyper",
   "dependencies": {
